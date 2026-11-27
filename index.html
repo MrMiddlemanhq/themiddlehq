@@ -199,6 +199,60 @@ footer .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 
 .btn.solid { background: var(--on-band); color: var(--band); }
 .btn:hover { background: var(--on-band); color: var(--band); }
 .btn.solid:hover { opacity: 0.85; }
+
+/* Enquiry form */
+.contact .sub { text-align: center; color: var(--muted); max-width: 34rem; margin: 1rem auto 0; }
+.enq { max-width: 44rem; margin: 2.5rem auto 0; }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--fg); border-radius: 999px; padding: 4px; gap: 4px; }
+.tabs button { font: inherit; font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; background: none; color: var(--fg); border: 0; border-radius: 999px; padding: 0.85rem 0.5rem; cursor: pointer; min-height: 44px; }
+.tabs button[aria-selected="true"] { background: var(--accent); color: var(--surface); }
+.enq form { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1.75rem; }
+.enq form[hidden] { display: none; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.enq label { display: flex; flex-direction: column; gap: 0.4rem; font-weight: 600; font-size: 0.9375rem; min-width: 0; }
+.enq .opt { font-weight: 400; color: var(--muted); font-size: 0.8125rem; }
+.enq input, .enq select, .enq textarea { font: inherit; font-weight: 400; font-size: 1rem; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 0.8rem 0.9rem; width: 100%; min-height: 48px; }
+.enq textarea { resize: vertical; }
+.enq input:focus, .enq select:focus, .enq textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.enq ::placeholder { color: var(--muted); opacity: 0.8; }
+.enq .bad { border-color: #C8321E; }
+.enq .hp { position: absolute; left: -9999px; width: 1px; height: 1px; min-height: 0; opacity: 0; }
+.send { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.25rem; margin-top: 0.4rem; }
+.sendbtn { font: inherit; font-family: var(--mono); font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent); color: var(--surface); border: 0; border-radius: 999px; padding: 1rem 1.6rem; cursor: pointer; min-height: 48px; }
+.sendbtn:hover { opacity: 0.88; }
+.sendbtn[disabled] { opacity: 0.5; cursor: default; }
+.priv { color: var(--muted); font-size: 0.875rem; }
+.msg { border-left: 3px solid var(--accent); padding: 0.6rem 0 0.6rem 0.9rem; font-weight: 600; }
+.alt { display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; gap: 1.5rem; margin-top: 2.75rem; padding-top: 1.75rem; border-top: 1px solid var(--line); }
+.alt > div { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; min-width: 0; }
+.alt p { overflow-wrap: anywhere; }
+.alt a { text-decoration-color: var(--accent); text-underline-offset: 0.2em; }
+.ghost { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--fg); border: 1px solid var(--fg); border-radius: 999px; padding: 0.75rem 1.1rem; }
+.ghost:hover { background: var(--fg); color: var(--surface); }
+footer details { flex-basis: 100%; }
+footer summary { cursor: pointer; }
+footer details p { margin-top: 0.6rem; max-width: 46rem; line-height: 1.55; }
+@media (max-width: 48rem) {
+  .contact .sub { text-align: left; margin-left: 0; }
+  .row2, .alt { grid-template-columns: 1fr; }
+  .send .sendbtn { width: 100%; }
+}
+
+/* Questions */
+.faq { padding-block: clamp(4rem, 9vw, 7rem); border-top: 1px solid var(--line); }
+.faq h2 { margin-top: 0.75rem; }
+.qa { display: grid; grid-template-columns: 1fr 1px 1fr; gap: clamp(1.5rem, 5vw, 4rem); margin-top: 3rem; }
+.qa .mid { background: var(--accent); }
+.qa > div { min-width: 0; }
+.qa > div > .label { margin-bottom: 1rem; }
+.qa details { border-top: 1px solid var(--line); }
+.qa details:last-child { border-bottom: 1px solid var(--line); }
+.qa summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-block: 1.05rem; font-family: var(--display); font-weight: 700; font-size: 1.1875rem; line-height: 1.25; letter-spacing: -0.01em; }
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: "+"; color: var(--accent); font-family: var(--mono); font-weight: 400; font-size: 1.25rem; flex: none; }
+.qa details[open] summary::after { content: "\2212"; }
+.qa details p { color: var(--muted); padding-bottom: 1.2rem; max-width: 32rem; }
+@media (max-width: 48rem) { .qa { grid-template-columns: 1fr; gap: 2.5rem; } .qa .mid { display: none; } }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"The Middle","alternateName":"The Middle HQ","url":"https://themiddlehq.com/","description":"UK talent management agency. We find and close brand deals for creators.","email":"brands@themiddlehq.com","foundingDate":"2026","areaServed":"GB","founder":{"@type":"Person","name":"Yacine"}}</script>
 </head>
@@ -210,6 +264,7 @@ footer .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 
     <a href="#sides">Creators</a>
     <a href="#roster">Roster</a>
     <a href="#how">How it works</a>
+    <a href="#questions">Questions</a>
     <a class="go" href="#contact">Get in touch</a>
   </nav>
 </header>
@@ -240,7 +295,7 @@ footer .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 
         <li>You see the video before it goes up</li>
         <li>It gets marked as an ad, because that's the law here</li>
       </ul>
-      <div class="reach"><a class="cta" href="#contact">Send us your brief</a><span>or email brands@themiddlehq.com</span></div>
+      <div class="reach"><a class="cta" href="#contact" data-side="brand">Send us your brief</a><span>or email brands@themiddlehq.com</span></div>
     </div>
     <div class="mid" aria-hidden="true"></div>
     <div class="side r" id="creators">
@@ -254,7 +309,7 @@ footer .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 
         <li>We chase the money</li>
         <li>Nothing goes ahead unless you say yes</li>
       </ul>
-      <div class="reach"><a class="cta" href="#contact">Talk to Yacine directly</a><span>or email yacine@themiddlehq.com</span></div>
+      <div class="reach"><a class="cta" href="#contact" data-side="creator">Talk to Yacine directly</a><span>or email yacine@themiddlehq.com</span></div>
     </div>
   </section>
 
@@ -280,7 +335,7 @@ footer .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 
           </dl>
           <p class="src">Counted off his public profiles on 26 November 2026. The 210K is the middle one of his last 22 normal TikToks, not his best one.</p>
           <div class="acts">
-            <a class="btn solid" href="#contact">Book Illy</a>
+            <a class="btn solid" href="#contact" data-side="brand">Book Illy</a>
             <a class="btn" href="https://www.tiktok.com/@nojokeilly" target="_blank" rel="noopener">Watch on TikTok ↗</a>
             <a class="btn" href="https://www.instagram.com/nojokeilly" target="_blank" rel="noopener">Instagram ↗</a>
           </div>
@@ -351,22 +406,127 @@ footer .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 
     </div>
   </section>
 
+  <section class="wrap faq" id="questions">
+    <p class="label">Before you ask</p>
+    <h2>The questions you were about to ask.</h2>
+    <div class="qa">
+      <div>
+        <p class="label">If you're a brand</p>
+        <details><summary>What does it cost?</summary><p>You get one fixed price in writing before anyone films. It depends on what you want made, how long you want to use it and whether you want the creator to stay away from your competitors. Send the brief and you'll get a number back.</p></details>
+        <details><summary>What if the video doesn't do well?</summary><p>Nobody can promise views, and anyone who does is guessing. Ads usually get fewer views than a creator's normal posts. That's true of everyone. What we do is show you a typical post and not the best one, and you see the video before it goes up.</p></details>
+        <details><summary>Can we run the video as our own ad?</summary><p>Yes, if we agree it. That's priced on its own and written down with dates, so nobody is arguing about it in three months.</p></details>
+        <details><summary>How long have you been going?</summary><p>Since 2026, with one creator. That's on purpose. Your brief goes to the founder and gets a reply within one working day, usually within the hour.</p></details>
+        <details><summary>We're an agency booking for a client. Is that fine?</summary><p>Yes. Same process, same speed.</p></details>
+        <details><summary>How do we pay?</summary><p>By invoice, on the terms we agree before filming starts.</p></details>
+      </div>
+      <div class="mid" aria-hidden="true"></div>
+      <div>
+        <p class="label">If you're a creator</p>
+        <details><summary>Do I even need a manager?</summary><p>Maybe not. If the deals are coming in and you don't mind the emails, the contracts and the chasing, carry on. If that's eating the time you'd spend making videos, that's the bit we take.</p></details>
+        <details><summary>What do you charge?</summary><p>A cut of the deals we find or close for you. Nothing up front and no monthly fee. If you don't get paid, we don't either. The exact cut is agreed in writing before we start.</p></details>
+        <details><summary>Am I locked in?</summary><p>No. The agreement is one page in plain English, and either of us can end it with notice.</p></details>
+        <details><summary>What about brands I already work with?</summary><p>They stay yours. We only take a cut where we found the deal or closed it.</p></details>
+        <details><summary>Do you decide what I post?</summary><p>No. Nothing goes ahead unless you say yes.</p></details>
+        <details><summary>When do I get paid?</summary><p>Brands often pay 30 to 60 days after the post goes up. We chase it so you're not the one sending the awkward email.</p></details>
+      </div>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
     <div class="wrap">
       <h2>Which side are you on?</h2>
-      <div class="doors">
-        <div class="door l">
-          <p class="label">Brands and agencies</p>
-          <a class="addr" href="mailto:brands@themiddlehq.com" id="addr-brands">brands@themiddlehq.com</a>
-          <p>Tell us what you're selling, the budget and the date. You'll get a straight answer back.</p>
-          <button class="copy" type="button" id="copy-brands" data-copy="addr-brands">Copy address</button>
+      <p class="sub">Two minutes. Tell us what you need and you'll hear back from Yacine within one working day, usually within the hour.</p>
+      <div class="enq">
+        <div class="tabs" role="tablist" aria-label="Who are you?">
+          <button type="button" role="tab" id="tab-brand" aria-controls="form-brand" aria-selected="true">I'm a brand</button>
+          <button type="button" role="tab" id="tab-creator" aria-controls="form-creator" aria-selected="false">I'm a creator</button>
         </div>
-        <div class="mid" aria-hidden="true"></div>
-        <div class="door r">
-          <p class="label">Creators</p>
-          <a class="addr" href="mailto:yacine@themiddlehq.com" id="addr-creators">yacine@themiddlehq.com</a>
-          <p>Send your handles and tell us what you want out of brand deals. Yacine reads all of them.</p>
-          <button class="copy" type="button" id="copy-creators" data-copy="addr-creators">Copy address</button>
+
+        <form id="form-brand" role="tabpanel" aria-labelledby="tab-brand" data-side="brand" novalidate>
+          <div class="row2">
+            <label>Your name<input name="name" autocomplete="name" required></label>
+            <label>Brand or agency<input name="company" autocomplete="organization" required></label>
+          </div>
+          <label>Work email<input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+          <label>What are you promoting?<input name="product" placeholder="The product, launch or offer" required></label>
+          <div class="row2">
+            <label>Budget for the creator
+              <select name="budget" required>
+                <option value="">Pick one</option>
+                <option>Under £1,000</option>
+                <option>£1,000 to £2,500</option>
+                <option>£2,500 to £5,000</option>
+                <option>Over £5,000</option>
+                <option>Not set yet</option>
+              </select>
+            </label>
+            <label>When should it go live?
+              <select name="timing" required>
+                <option value="">Pick one</option>
+                <option>In the next two weeks</option>
+                <option>This month</option>
+                <option>In one to three months</option>
+                <option>No date yet</option>
+              </select>
+            </label>
+          </div>
+          <label>Anything else we should know? <span class="opt">Optional</span><textarea name="notes" rows="3" placeholder="What you want the video to do, links, who you've worked with before"></textarea></label>
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="send">
+            <button class="sendbtn" type="submit">Send brief</button>
+            <p class="priv">We use this to reply to you and nothing else. <a href="#privacy">Privacy</a></p>
+          </div>
+          <p class="msg" role="status" hidden></p>
+        </form>
+
+        <form id="form-creator" role="tabpanel" aria-labelledby="tab-creator" data-side="creator" novalidate hidden>
+          <div class="row2">
+            <label>Your name<input name="name" autocomplete="name" required></label>
+            <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+          </div>
+          <div class="row2">
+            <label>Your main account<input name="handle" placeholder="@yourname on TikTok or Instagram" required></label>
+            <label>Followers on it
+              <select name="followers" required>
+                <option value="">Pick one</option>
+                <option>Under 10,000</option>
+                <option>10,000 to 50,000</option>
+                <option>50,000 to 250,000</option>
+                <option>Over 250,000</option>
+              </select>
+            </label>
+          </div>
+          <label>Have brands paid you before?
+            <select name="paid" required>
+              <option value="">Pick one</option>
+              <option>Yes, a few times</option>
+              <option>Once or twice</option>
+              <option>Free product only</option>
+              <option>Not yet</option>
+            </select>
+          </label>
+          <label>What do you want help with?<textarea name="notes" rows="3" placeholder="Finding deals, pricing, contracts, getting paid, all of it" required></textarea></label>
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="send">
+            <button class="sendbtn" type="submit">Send to Yacine</button>
+            <p class="priv">We use this to reply to you and nothing else. <a href="#privacy">Privacy</a></p>
+          </div>
+          <p class="msg" role="status" hidden></p>
+        </form>
+
+        <div class="alt">
+          <div>
+            <p class="label">Rather talk?</p>
+            <a class="ghost" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ29KOlVZmM-6WWXAH8-FEkZzJhKR75fJUoJQmnG4uwHhRiKHi1or-7IQRwezyH1KpGXzQ8ag0Vp" target="_blank" rel="noopener" id="book-call">Book a 15 minute call</a>
+          </div>
+          <div>
+            <p class="label">Rather message?</p>
+            <a class="ghost" href="https://wa.me/447341681949?text=Hi%20Yacine%2C%20I%27ve%20just%20been%20on%20themiddlehq.com." target="_blank" rel="noopener">WhatsApp Yacine</a>
+          </div>
+          <div>
+            <p class="label">Rather email?</p>
+            <p><a href="mailto:brands@themiddlehq.com">brands@themiddlehq.com</a><br><a href="mailto:yacine@themiddlehq.com">yacine@themiddlehq.com</a></p>
+          </div>
         </div>
       </div>
     </div>
@@ -377,18 +537,59 @@ footer .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 
   <div class="wrap">
     <span>© 2026 The Middle. Talent management, United Kingdom.</span>
     <span>themiddlehq.com</span>
+    <details id="privacy">
+      <summary>Privacy</summary>
+      <p>This site sets no cookies and runs no tracking. If you fill in the form, The Middle (Yacine, yacine@themiddlehq.com) gets what you typed and uses it to reply to you and, if we work together, to run the deal. It is stored in our Google Workspace account. We don't sell it or pass it on. If nothing comes of it we delete it after 12 months. You can ask to see it, fix it or have it deleted at any time by emailing yacine@themiddlehq.com, and you can complain to the ICO at ico.org.uk if you think we've handled it badly.</p>
+    </details>
   </div>
 </footer>
 
 <script>
-document.querySelectorAll('.copy').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    var el = document.getElementById(btn.dataset.copy);
-    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy address'; }, 1600); };
-    var select = function () { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; };
-    try { navigator.clipboard.writeText(el.textContent).then(done, select); } catch (e) { select(); }
+(function () {
+  var LIVE = /(^|\.)themiddlehq\.com$/.test(location.hostname);
+  var ENDPOINT = LIVE ? 'https://docs.google.com/forms/d/e/1FAIpQLSfgSjjYCxX2RAIknCFmesqRIJWv7he8aVsnyrC_NsoXHZBsgw/formResponse' : '';
+  var IDS = { side: 1036431291, name: 330221126, company: 982517065, email: 681632929, product: 503736869, budget: 1534175780, timing: 978777234, handle: 330638998, followers: 453377631, paid: 886408807, notes: 869310200 };
+  var tabs = [document.getElementById('tab-brand'), document.getElementById('tab-creator')];
+  function show(which) {
+    tabs.forEach(function (t) {
+      var on = t.id === 'tab-' + which;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.id.replace('tab-', '')); }); });
+  document.querySelectorAll('a[href="#contact"][data-side]').forEach(function (a) {
+    a.addEventListener('click', function () { show(a.dataset.side); });
   });
-});
+  document.querySelectorAll('.enq form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var msg = form.querySelector('.msg'), btn = form.querySelector('.sendbtn'), ok = true, first = null;
+      form.querySelectorAll('[required]').forEach(function (f) {
+        var bad = !f.value.trim() || (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value.trim()));
+        f.classList.toggle('bad', bad);
+        if (bad) { ok = false; first = first || f; }
+      });
+      msg.hidden = false;
+      if (!ok) { msg.textContent = 'A couple of boxes still need filling in.'; first.focus(); return; }
+      if (form.website.value) { msg.textContent = 'Sent.'; return; }
+      var thanks = form.dataset.side === 'brand'
+        ? 'Got it. Yacine will reply within one working day, usually within the hour, with a yes or no and a price.'
+        : 'Got it. Yacine reads every one of these and will reply within one working day, usually within the hour.';
+      if (!ENDPOINT) { msg.textContent = 'Preview only, nothing was sent. On the live site this says: ' + thanks; return; }
+      var body = new URLSearchParams();
+      body.append('entry.' + IDS.side, form.dataset.side);
+      Object.keys(IDS).forEach(function (k) { if (k !== 'side' && form[k] && form[k].value.trim()) body.append('entry.' + IDS[k], form[k].value.trim()); });
+      btn.disabled = true; btn.textContent = 'Sending';
+      fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: body }).then(function () {
+        msg.textContent = thanks; form.reset(); btn.textContent = 'Sent';
+      }, function () {
+        btn.disabled = false; btn.textContent = 'Try again';
+        msg.textContent = 'That did not send. Try again, or email us at the address below.';
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>
