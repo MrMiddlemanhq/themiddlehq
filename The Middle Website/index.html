@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Middle</title>
+<meta name="description" content="The Middle is a UK talent management agency. We find and close brand deals for creators.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="canonical" href="https://themiddlehq.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232340F0'/%3E%3Crect x='15' y='6' width='2' height='20' fill='white'/%3E%3C/svg%3E">
+<meta property="og:title" content="The Middle">
+<meta property="og:description" content="UK talent management. We find and close brand deals for creators.">
+<meta property="og:url" content="https://themiddlehq.com/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+/* Layout concept: one centre line runs through the page. Brands sit left of it, creators right, The Middle on it. */
+:root {
+  --bg: #EEF0F4;
+  --surface: #FFFFFF;
+  --fg: #0B1026;
+  --muted: #535B78;
+  --line: #C3C8D8;
+  --accent: #2340F0;
+  --band: #2340F0;
+  --on-band: #FFFFFF;
+  --on-band-muted: #CBD3FF;
+  --display: "Bricolage Grotesque", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "DM Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #070A18; --surface: #10152B; --fg: #ECEFF8; --muted: #9AA3C2; --line: #2A3152;
+    --accent: #8493FF; --band: #2438D4; --on-band: #FFFFFF; --on-band-muted: #C5CDFF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #070A18; --surface: #10152B; --fg: #ECEFF8; --muted: #9AA3C2; --line: #2A3152;
+  --accent: #8493FF; --band: #2438D4; --on-band: #FFFFFF; --on-band-muted: #C5CDFF;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 1.0625rem; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.band :focus-visible { outline-color: var(--on-band); }
+p, h1, h2, h3, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+.wrap { max-width: 72rem; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+h2 { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1; letter-spacing: -0.025em; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 700; font-size: 1.75rem; line-height: 1.1; letter-spacing: -0.02em; }
+
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; }
+.mark { font-family: var(--display); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+.mark i { width: 2px; height: 1.1em; background: var(--accent); display: inline-block; }
+.nav { display: flex; align-items: center; gap: 1.5rem; font-size: 0.9375rem; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--fg); }
+.nav .go { color: var(--fg); border: 1px solid var(--fg); padding: 0.5rem 0.9rem; border-radius: 999px; }
+.nav .go:hover { background: var(--fg); color: var(--bg); }
+@media (max-width: 40rem) { .nav a:not(.go) { display: none; } }
+
+/* Hero */
+.hero { text-align: center; padding-block: clamp(3rem, 9vw, 6.5rem) 0; }
+.hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 11vw, 8.5rem); line-height: 0.9; letter-spacing: -0.04em; text-wrap: balance; margin-top: 1.25rem; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { max-width: 36rem; margin: 1.75rem auto 0; color: var(--muted); font-size: 1.1875rem; }
+.axis { display: grid; grid-template-columns: auto 1fr auto 1fr auto; align-items: center; gap: 0.75rem; margin-top: clamp(2.5rem, 6vw, 4rem); }
+.axis a { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 0.7rem 1rem; border: 1px solid var(--fg); border-radius: 999px; white-space: nowrap; }
+.axis a:hover { background: var(--fg); color: var(--bg); }
+.axis .rule { height: 1px; background: var(--line); transform-origin: center; animation: grow 0.9s cubic-bezier(.2,.7,.2,1) both; }
+.axis .dot { width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--accent); }
+.drop { width: 1px; height: clamp(3rem, 8vw, 5.5rem); background: var(--accent); margin: 0 auto; transform-origin: top; animation: fall 0.9s 0.5s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes grow { from { transform: scaleX(0); } }
+@keyframes fall { from { transform: scaleY(0); } }
+@media (prefers-reduced-motion: reduce) { .axis .rule, .drop { animation: none; } }
+@media (max-width: 30rem) { .axis { gap: 0.4rem; } .axis a { padding: 0.6rem 0.7rem; font-size: 0.6875rem; letter-spacing: 0.08em; } }
+
+/* Two sides */
+.sides { display: grid; grid-template-columns: 1fr 1px 1fr; gap: clamp(1.5rem, 5vw, 4rem); padding-block: 0 clamp(4rem, 9vw, 7rem); }
+.sides .mid { background: var(--accent); }
+.side { padding-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; min-width: 0; }
+.side.l { text-align: right; align-items: flex-end; }
+.side p.say { color: var(--muted); max-width: 26rem; }
+.side li { padding-block: 0.8rem; border-top: 1px solid var(--line); max-width: 26rem; }
+.side ul { width: 100%; max-width: 26rem; }
+.side .reach { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; margin-top: 0.5rem; }
+@media (min-width: 48.01rem) { .side.l .reach { align-items: flex-end; } }
+.side a.cta { font-family: var(--body); font-weight: 600; font-size: 1rem; text-decoration: none; background: var(--fg); color: var(--bg); padding: 0.8rem 1.3rem; border-radius: 999px; }
+.side a.cta:hover { background: var(--accent); color: var(--on-band); }
+.side .reach span { color: var(--muted); font-size: 0.9375rem; }
+@media (max-width: 48rem) {
+  .sides { grid-template-columns: 1fr; gap: 0; }
+  .sides .mid { display: none; }
+  .side, .side.l { text-align: left; align-items: flex-start; border-left: 1px solid var(--accent); padding-left: 1.25rem; padding-bottom: 2rem; }
+}
+
+/* Roster band */
+.band { background: var(--band); color: var(--on-band); }
+.band .wrap { padding-block: clamp(3.5rem, 8vw, 6rem); }
+.band .label { color: var(--on-band-muted); }
+.roster { display: grid; grid-template-columns: minmax(0, 27rem) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: end; margin-top: 1.5rem; }
+.roster .shot { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 2px; }
+.roster .who-is { display: flex; flex-direction: column; gap: 2rem; min-width: 0; }
+.roster .name { font-family: var(--display); font-weight: 800; font-size: clamp(5rem, 15vw, 11rem); line-height: 0.8; letter-spacing: -0.02em; }
+.roster .handle { font-family: var(--mono); margin-top: 1.5rem; color: var(--on-band-muted); }
+.roster .what { margin-top: 0.5rem; max-width: 26rem; }
+.stats { display: grid; gap: 0; font-variant-numeric: tabular-nums; }
+.stats a { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: 1rem; border-top: 1px solid var(--on-band-muted); text-decoration: none; }
+.stats a:last-of-type { border-bottom: 1px solid var(--on-band-muted); }
+.stats b { font-family: var(--display); font-weight: 700; font-size: 2.5rem; line-height: 1; letter-spacing: -0.03em; }
+.stats span { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.stats a:hover span { text-decoration: underline; }
+.stats small { font-family: var(--mono); font-size: 0.75rem; color: var(--on-band-muted); margin-top: 0.9rem; }
+.next { margin-top: clamp(2.5rem, 6vw, 4rem); padding-top: 1.5rem; border-top: 1px dashed var(--on-band-muted); display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+.next p { max-width: 34rem; }
+@media (max-width: 48rem) { .roster { grid-template-columns: 1fr; } }
+
+/* Process */
+.how { padding-block: clamp(4rem, 9vw, 7rem); }
+.how .intro { max-width: 36rem; color: var(--muted); margin-top: 1rem; }
+.cols, .step { display: grid; grid-template-columns: 1fr 8rem 1fr; gap: clamp(1rem, 3vw, 2.5rem); }
+.cols { margin-top: 3rem; padding-bottom: 1rem; }
+.cols .label:first-child { text-align: right; }
+.cols .label:nth-child(2) { text-align: center; color: var(--accent); }
+.steps { position: relative; }
+.steps::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--accent); }
+.step { padding-block: 1.5rem; align-items: start; position: relative; }
+.step > p { min-width: 0; }
+.step > p:first-child { text-align: right; }
+.step .chip { justify-self: center; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; background: var(--bg); border: 1px solid var(--accent); color: var(--accent); padding: 0.35rem 0.8rem; border-radius: 999px; position: relative; }
+.step .who { display: none; }
+@media (max-width: 48rem) {
+  .cols { display: none; }
+  .steps { margin-top: 2.5rem; }
+  .steps::before { left: 0; }
+  .step { grid-template-columns: 1fr; gap: 0.6rem; padding-left: 1.25rem; }
+  .step > p:first-child { text-align: left; }
+  .step .chip { justify-self: start; order: -1; margin-left: -1.25rem; transform: translateX(-0.5px); border-radius: 0 999px 999px 0; border-left: 0; }
+  .step .who { display: block; font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+}
+
+/* Straight facts */
+.facts { border-top: 1px solid var(--line); padding-block: clamp(4rem, 9vw, 7rem); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); }
+.facts > div { min-width: 0; display: flex; flex-direction: column; gap: 1.25rem; }
+.facts li { padding-block: 0.9rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; }
+.facts li span:first-child { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 0.3rem; }
+.facts .no { font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 3.2vw, 2.25rem); line-height: 1.15; letter-spacing: -0.02em; }
+.facts .no s { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.facts .why { color: var(--muted); max-width: 28rem; }
+@media (max-width: 48rem) { .facts { grid-template-columns: 1fr; } }
+
+/* Contact */
+.contact { background: var(--surface); border-top: 1px solid var(--line); }
+.contact .wrap { padding-block: clamp(4rem, 9vw, 7rem); }
+.contact h2 { text-align: center; }
+.doors { display: grid; grid-template-columns: 1fr 1px 1fr; gap: clamp(1.5rem, 5vw, 4rem); margin-top: 3rem; }
+.doors .mid { background: var(--accent); }
+.door { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; min-width: 0; }
+.door.l { text-align: right; align-items: flex-end; }
+.door .addr { font-family: var(--display); font-weight: 700; font-size: clamp(1.25rem, 3vw, 2rem); letter-spacing: -0.02em; overflow-wrap: anywhere; text-decoration-color: var(--accent); text-underline-offset: 0.2em; }
+.door p { color: var(--muted); max-width: 24rem; }
+.copy { font: inherit; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; background: none; color: var(--fg); border: 1px solid var(--fg); border-radius: 999px; padding: 0.5rem 0.9rem; cursor: pointer; }
+.copy:hover { background: var(--fg); color: var(--surface); }
+@media (max-width: 48rem) {
+  .contact h2 { text-align: left; }
+  .doors { grid-template-columns: 1fr; gap: 2.5rem; }
+  .doors .mid { display: none; }
+  .door, .door.l { text-align: left; align-items: flex-start; }
+}
+
+footer .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; color: var(--muted); font-size: 0.875rem; }
+
+/* Roster profile */
+.roster { align-items: center; }
+.roster .who-is { gap: 1.5rem; }
+.roster .handle { margin-top: 1.25rem; }
+.roster .pitch { font-family: var(--display); font-weight: 600; font-size: clamp(1.375rem, 2.6vw, 1.875rem); line-height: 1.2; letter-spacing: -0.015em; max-width: 34rem; text-wrap: balance; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tags li { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--on-band-muted); border-radius: 999px; padding: 0.35rem 0.8rem; }
+.nums { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border-top: 1px solid var(--on-band-muted); font-variant-numeric: tabular-nums; }
+.nums div { padding: 1rem 1rem 1rem 0; border-bottom: 1px solid var(--on-band-muted); display: flex; flex-direction: column-reverse; gap: 0.35rem; min-width: 0; }
+.nums div:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--on-band-muted); }
+.nums dd { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.25rem); line-height: 1; letter-spacing: -0.03em; }
+.nums dt { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-band-muted); }
+.roster .src { font-family: var(--mono); font-size: 0.75rem; line-height: 1.5; color: var(--on-band-muted); max-width: 34rem; }
+.acts { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.btn { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--on-band); border-radius: 999px; padding: 0.7rem 1.1rem; color: var(--on-band); }
+.btn.solid { background: var(--on-band); color: var(--band); }
+.btn:hover { background: var(--on-band); color: var(--band); }
+.btn.solid:hover { opacity: 0.85; }
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="mark" href="#top" id="top">The <i></i> Middle</a>
+  <nav class="nav" aria-label="Main">
+    <a href="#sides">Brands</a>
+    <a href="#sides">Creators</a>
+    <a href="#roster">Roster</a>
+    <a href="#how">How it works</a>
+    <a class="go" href="#contact">Get in touch</a>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <p class="label">Talent management · United Kingdom</p>
+    <h1>The deal gets done <em>in the middle.</em></h1>
+    <p class="lede">Brands have budgets. Creators have audiences. We sit in the middle and get the deal done, right through to everyone being paid.</p>
+    <div class="axis">
+      <a href="#brands">I'm a brand</a>
+      <span class="rule"></span>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="rule"></span>
+      <a href="#creators">I'm a creator</a>
+    </div>
+    <div class="drop" aria-hidden="true"></div>
+  </section>
+
+  <section class="wrap sides" id="sides">
+    <div class="side l" id="brands">
+      <p class="label">For brands</p>
+      <h2>One person to deal with. One clear price.</h2>
+      <p class="say">Most of the back and forth in this game is people not saying the number. So say the number, and you'll get a straight yes or no and a price back.</p>
+      <ul>
+        <li>You deal with one person, start to finish</li>
+        <li>The fee and what you can do with the video go in writing before anyone films</li>
+        <li>You see the video before it goes up</li>
+        <li>It gets marked as an ad, because that's the law here</li>
+      </ul>
+      <div class="reach"><a class="cta" href="#contact">Send us your brief</a><span>or email brands@themiddlehq.com</span></div>
+    </div>
+    <div class="mid" aria-hidden="true"></div>
+    <div class="side r" id="creators">
+      <p class="label">For creators</p>
+      <h2>You make the content. We do the rest.</h2>
+      <p class="say">If you're replying to brand emails at 1am and still chasing an invoice from two months ago, what's the point? That's the bit we take off you.</p>
+      <ul>
+        <li>We find the brands and get the conversation going</li>
+        <li>We argue the fee so you don't have to</li>
+        <li>We read the contract before you sign anything</li>
+        <li>We chase the money</li>
+        <li>Nothing goes ahead unless you say yes</li>
+      </ul>
+      <div class="reach"><a class="cta" href="#contact">Talk to Yacine directly</a><span>or email yacine@themiddlehq.com</span></div>
+    </div>
+  </section>
+
+  <section class="band" id="roster">
+    <div class="wrap">
+      <p class="label">The roster</p>
+      <div class="roster">
+        <img class="shot" src="illy.jpg" alt="Illy smiling beside a football trophy at an event" width="1101" height="1478">
+        <div class="who-is">
+          <div>
+            <p class="name">Illy</p>
+            <p class="handle">@nojokeilly · United Kingdom</p>
+          </div>
+          <p class="pitch">Illy makes football, love, mates and uni funny. He posts every day, and 380,000 people follow him for it.</p>
+          <ul class="tags" aria-label="What he makes">
+            <li>Comedy</li><li>Football</li><li>Uni life</li><li>Relationships</li>
+          </ul>
+          <dl class="nums">
+            <div><dt>TikTok followers</dt><dd>380.8K</dd></div>
+            <div><dt>TikTok likes</dt><dd>99.3M</dd></div>
+            <div><dt>Views on a typical post</dt><dd>210K</dd></div>
+            <div><dt>Instagram followers</dt><dd>84.8K</dd></div>
+          </dl>
+          <p class="src">Counted off his public profiles on 26 November 2026. The 210K is the middle one of his last 22 normal TikToks, not his best one.</p>
+          <div class="acts">
+            <a class="btn solid" href="#contact">Book Illy</a>
+            <a class="btn" href="https://www.tiktok.com/@nojokeilly" target="_blank" rel="noopener">Watch on TikTok ↗</a>
+            <a class="btn" href="https://www.instagram.com/nojokeilly" target="_blank" rel="noopener">Instagram ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="next">
+        <p>Illy's the only one on the roster right now. We'd rather do one creator properly than ten badly. If you want to be the second, email yacine@themiddlehq.com.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap how" id="how">
+    <p class="label">How a deal runs</p>
+    <h2 style="margin-top:0.75rem">Six steps, and you always know which one you're on.</h2>
+    <p class="intro">Each step has the brand's bit and the creator's bit. We're in between.</p>
+    <div class="cols" aria-hidden="true">
+      <span class="label">Brand</span><span class="label">The Middle</span><span class="label">Creator</span>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <p><span class="who">Brand</span>You tell us what you're selling, what you want out of it, the budget and the date.</p>
+        <span class="chip">Brief</span>
+        <p><span class="who">Creator</span>We only bring it to you if it actually suits you.</p>
+      </li>
+      <li class="step">
+        <p><span class="who">Brand</span>You get a yes or a no, and a price.</p>
+        <span class="chip">Fit</span>
+        <p><span class="who">Creator</span>You decide. Nothing goes ahead without your yes.</p>
+      </li>
+      <li class="step">
+        <p><span class="who">Brand</span>Fee, deliverables, usage rights and exclusivity. All in writing before anyone films.</p>
+        <span class="chip">Terms</span>
+        <p><span class="who">Creator</span>You know what you're making and what you're getting paid before you pick up the phone.</p>
+      </li>
+      <li class="step">
+        <p><span class="who">Brand</span>You see it before it goes up.</p>
+        <span class="chip">Content</span>
+        <p><span class="who">Creator</span>You make it your way. That's what they're paying for.</p>
+      </li>
+      <li class="step">
+        <p><span class="who">Brand</span>It goes up on the day we agreed, marked as an ad.</p>
+        <span class="chip">Live</span>
+        <p><span class="who">Creator</span>You post it. We keep the brand in the loop.</p>
+      </li>
+      <li class="step">
+        <p><span class="who">Brand</span>You pay on the terms we agreed.</p>
+        <span class="chip">Paid</span>
+        <p><span class="who">Creator</span>We chase the payment so you don't have to.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="wrap facts">
+    <div>
+      <p class="label">Why The Middle</p>
+      <h2>You deal with the person who decides.</h2>
+      <ul>
+        <li><span>Your contact</span><span>Yacine, the founder. Every email and every call.</span></li>
+        <li><span>Our roster</span><span>One creator right now, so every brief gets our full attention.</span></li>
+        <li><span>Our numbers</span><span>All public and dated. Check them yourself.</span></li>
+        <li><span>Since</span><span>2026. Based in the UK.</span></li>
+      </ul>
+    </div>
+    <div>
+      <p class="label">Deals we don't take</p>
+      <p class="no"><s>Gambling.</s> <s>Alcohol.</s> <s>Insurance.</s> <s>Interest based finance.</s></p>
+      <p class="why">If that's you, we're not your agency. Better you hear it now than three emails in.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Which side are you on?</h2>
+      <div class="doors">
+        <div class="door l">
+          <p class="label">Brands and agencies</p>
+          <a class="addr" href="mailto:brands@themiddlehq.com" id="addr-brands">brands@themiddlehq.com</a>
+          <p>Tell us what you're selling, the budget and the date. You'll get a straight answer back.</p>
+          <button class="copy" type="button" id="copy-brands" data-copy="addr-brands">Copy address</button>
+        </div>
+        <div class="mid" aria-hidden="true"></div>
+        <div class="door r">
+          <p class="label">Creators</p>
+          <a class="addr" href="mailto:yacine@themiddlehq.com" id="addr-creators">yacine@themiddlehq.com</a>
+          <p>Send your handles and tell us what you want out of brand deals. Yacine reads all of them.</p>
+          <button class="copy" type="button" id="copy-creators" data-copy="addr-creators">Copy address</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 The Middle. Talent management, United Kingdom.</span>
+    <span>themiddlehq.com</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy address'; }, 1600); };
+    var select = function () { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; };
+    try { navigator.clipboard.writeText(el.textContent).then(done, select); } catch (e) { select(); }
+  });
+});
+</script>
+</body>
+</html>
